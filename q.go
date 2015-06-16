@@ -9,12 +9,26 @@ type Q struct {
 	_r *big.Rat
 }
 
-// MkQ returns a rational number equal to r.
-func MkQ(r *big.Rat) Q {
+// RtoQ returns a rational number equal to r.
+func RtoQ(r *big.Rat) Q {
 	if r == nil {
 		return Q{new(big.Rat)}
 	}
 	return Q{new(big.Rat).Set(r)}
+}
+
+// ItoQ returns a rational number equal to n.
+func ItoQ(n int64) Q {
+	return Q{new(big.Rat).SetInt64(n)}
+}
+
+// FtoQ returns a rational number equal to f. If f is not finite, a run-time panic occurs.
+func FtoQ(f float64) Q {
+	r := new(big.Rat)
+	if r.SetFloat64(f) == nil {
+		panic("not finite")
+	}
+	return Q{r}
 }
 
 func r(x Q) *big.Rat {
@@ -83,4 +97,9 @@ func (x Q) Rat() *big.Rat {
 		return new(big.Rat)
 	}
 	return new(big.Rat).Set(x._r)
+}
+
+// String returns a string representation of x.
+func (x Q) String() string {
+	return r(x).String()
 }
