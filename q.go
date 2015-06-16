@@ -87,7 +87,7 @@ func (x Q) Sgn() int {
 //
 //	-1 if x < y
 //	 0 if x = 0
-//	+1 if x > y.
+//	+1 if x > y
 func (x Q) Cmp(y Q) int {
 	return r(x).Cmp(r(y))
 }
