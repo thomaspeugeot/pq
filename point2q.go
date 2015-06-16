@@ -17,6 +17,11 @@ func (a Point2q) Y() Q {
 	return a.y
 }
 
+// XY returns the Cartesian coordinates of a.
+func (a Point2q) XY() (x, y Q) {
+	return a.x, a.y
+}
+
 // CmpX compares the Cartesian x-coordinates of a and b.
 func (a Point2q) CmpX(b Point2q) int {
 	return a.x.Cmp(b.x)
