@@ -1,5 +1,6 @@
 // Copyright (c) 2015 Leonid Kneller
-
+//
+// Exact computational geometry.
 package pq
 
 import "math/big"
