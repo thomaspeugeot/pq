@@ -7,6 +7,10 @@ type Point2q struct {
 	x, y Q
 }
 
+func XYtoP(x, y Q) Point2q {
+	return Point2q{x, y}
+}
+
 // X returns the Cartesian x-coordinate of a.
 func (a Point2q) X() Q {
 	return a.x
@@ -56,4 +60,14 @@ func (a Point2q) Add(u Vector2q) Point2q {
 // Sub returns the point obtained by translating a by -u.
 func (a Point2q) Sub(u Vector2q) Point2q {
 	return Point2q{a.x.Sub(u.x), a.y.Sub(u.y)}
+}
+
+// Orientation returns:
+//
+//	-1 if (a,b,c) are clockwise
+//	 0 if (a,b,c) are collinear
+//	+1 if (a,b,c) are counter-clockwise
+func (a Point2q) Orientation(b, c Point2q) int {
+	det := Det2x2(b.x.Sub(a.x), b.y.Sub(a.y), c.x.Sub(a.x), c.y.Sub(a.y))
+	return det.Sgn()
 }
