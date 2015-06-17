@@ -92,6 +92,22 @@ func (x Q) Cmp(y Q) int {
 	return r(x).Cmp(r(y))
 }
 
+// Max returns max{x,y}.
+func (x Q) Max(y Q) Q {
+	if r(x).Cmp(r(y)) > 0 {
+		return x
+	}
+	return y
+}
+
+// Min returns min{x,y}.
+func (x Q) Min(y Q) Q {
+	if r(x).Cmp(r(y)) < 0 {
+		return x
+	}
+	return y
+}
+
 // Rat returns a big.Rat number equal to x.
 func (x Q) Rat() *big.Rat {
 	if x._r == nil {

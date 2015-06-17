@@ -7,6 +7,7 @@ type Point2q struct {
 	x, y Q
 }
 
+// XYtoP returns the point (x,y).
 func XYtoP(x, y Q) Point2q {
 	return Point2q{x, y}
 }
