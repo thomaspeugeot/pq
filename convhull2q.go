@@ -47,14 +47,21 @@ func ConvHull2q(ps []Point2q) (lower, upper []Point2q) {
 		return list[n-2].Orientation(list[n-1], p) <= 0
 	}
 	//
+	// del(list) returns list without its last element.
+	//
+	del := func(list []Point2q) []Point2q {
+		n1 := len(list) - 1
+		list[n1] = Point2q{}
+		return list[:n1]
+	}
+	//
 	// Build the lower hull.
 	//
 	lower = make([]Point2q, 0)
 	for i := 0; i < n; i++ {
 		pi := ps[i]
 		for len(lower) > 1 && noccw(lower, pi) {
-			lower[len(lower)-1] = Point2q{}
-			lower = lower[:len(lower)-1]
+			lower = del(lower)
 		}
 		lower = append(lower, pi)
 	}
@@ -65,8 +72,7 @@ func ConvHull2q(ps []Point2q) (lower, upper []Point2q) {
 	for i := n - 1; i >= 0; i-- {
 		pi := ps[i]
 		for len(upper) > 1 && noccw(upper, pi) {
-			upper[len(upper)-1] = Point2q{}
-			upper = upper[:len(upper)-1]
+			upper = del(upper)
 		}
 		upper = append(upper, pi)
 	}
