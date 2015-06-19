@@ -10,6 +10,9 @@ type Q struct {
 	_r *big.Rat
 }
 
+var qone Q = ItoQ(1)
+var qtwo Q = ItoQ(2)
+
 // RtoQ returns a rational number equal to r.
 func RtoQ(r *big.Rat) Q {
 	if r == nil {
