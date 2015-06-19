@@ -10,7 +10,7 @@ import (
 
 // ConvHull2q computes the convex hull of a collection of points in the plane.
 // It implements Graham's scan algorithm with Andrew's modification. It computes
-// both the lower hull and the upper hull. Both hull vertices are listed in
+// both the lower hull and the upper hull. The hull vertices are listed in
 // counter-clockwise order. The function modifies the input ps by reordering it.
 //
 // Reference: R.L. Graham, An efficient algorithm for determining the convex hull of a
@@ -102,7 +102,7 @@ func (a p2qs) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 
 // ParConvHull2q computes the convex hull of a collection of points in the plane.
 // It implements Graham's scan algorithm with Andrew's modification. It computes
-// both the lower hull and the upper hull. Both hull vertices are listed in
+// both the lower hull and the upper hull. The hull vertices are listed in
 // counter-clockwise order. The function modifies the input ps by reordering it.
 // If ncpu > 0 then computations run in parallel using ncpu goroutines;
 // otherwise computations run in parallel using runtime.NumCPU() goroutines.
