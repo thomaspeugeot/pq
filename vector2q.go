@@ -71,3 +71,8 @@ func (u Vector2q) MaxAbs() Q {
 func (u Vector2q) SumAbs() Q {
 	return (u.x.Abs()).Add(u.y.Abs())
 }
+
+// String returns a string representation of u in the form "(x,y)".
+func (u Vector2q) String() string {
+	return "(" + u.x.String() + "," + u.y.String() + ")"
+}

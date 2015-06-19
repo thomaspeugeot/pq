@@ -23,7 +23,7 @@ func PPtoCir(a, b Point2q) Circle2q {
 	return Circle2q{cen, rsq}
 }
 
-// PPPtoCir returns a circle passing through given points.
+// PPPtoCir returns a circle passing through three given points.
 func PPPtoCir(a, b, c Point2q) Circle2q {
 	// Test if (a,b,c) are collinear.
 	if a.Orientation(b, c) == 0 {
@@ -81,4 +81,9 @@ func (c Circle2q) Radius2() Q {
 //	+1 if a is inside c
 func (c Circle2q) Side(a Point2q) int {
 	return c.rsq.Cmp(c.cen.Dist2(a))
+}
+
+// String returns a string representation of c in the form "(center,radius2)".
+func (c Circle2q) String() string {
+	return "(" + c.cen.String() + "," + c.rsq.String() + ")"
 }

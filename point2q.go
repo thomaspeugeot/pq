@@ -86,3 +86,8 @@ func (a Point2q) Midpoint(b Point2q) Point2q {
 	y := (a.y.Add(b.y)).Div(qtwo)
 	return Point2q{x, y}
 }
+
+// String returns a string representation of a in the form "(x,y)".
+func (a Point2q) String() string {
+	return "(" + a.x.String() + "," + a.y.String() + ")"
+}
