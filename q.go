@@ -10,6 +10,7 @@ type Q struct {
 	_r *big.Rat
 }
 
+var qzer Q = ItoQ(0)
 var qone Q = ItoQ(1)
 var qtwo Q = ItoQ(2)
 
