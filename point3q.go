@@ -110,6 +110,11 @@ func (a Point3q) Midpoint(b Point3q) Point3q {
 	return Point3q{x, y, z}
 }
 
+// Vector returns the vector from a to b.
+func (a Point3q) Vector(b Point3q) Vector3q {
+	return Vector3q{b.x.Sub(a.x), b.y.Sub(a.y), b.z.Sub(a.z)}
+}
+
 // String returns a string representation of a in the form "(x,y,z)".
 func (a Point3q) String() string {
 	return "(" + a.x.String() + "," + a.y.String() + "," + a.z.String() + ")"

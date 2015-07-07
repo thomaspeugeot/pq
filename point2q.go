@@ -87,6 +87,11 @@ func (a Point2q) Midpoint(b Point2q) Point2q {
 	return Point2q{x, y}
 }
 
+// Vector returns the vector from a to b.
+func (a Point2q) Vector(b Point2q) Vector2q {
+	return Vector2q{b.x.Sub(a.x), b.y.Sub(a.y)}
+}
+
 // String returns a string representation of a in the form "(x,y)".
 func (a Point2q) String() string {
 	return "(" + a.x.String() + "," + a.y.String() + ")"
