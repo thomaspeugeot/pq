@@ -10,6 +10,11 @@ type Q struct {
 	_r *big.Rat
 }
 
+func (q Q) Float64() float64 {
+	f, _ := q._r.Float64()
+	return f
+}
+
 var qzer Q = ItoQ(0)
 var qone Q = ItoQ(1)
 var qtwo Q = ItoQ(2)
